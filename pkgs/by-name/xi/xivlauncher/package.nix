@@ -17,7 +17,7 @@
 }:
 
 let
-  rev = "1.3.0";
+  rev = "1.3.1";
 in
 buildDotnetModule rec {
   pname = "XIVLauncher";
@@ -27,7 +27,7 @@ buildDotnetModule rec {
     owner = "goatcorp";
     repo = "XIVLauncher.Core";
     inherit rev;
-    hash = "sha256-tPziHwHK4B+LJ8xNWEBmpFStkczZF3G5jhjxYYG59m0=";
+    hash = "sha256-a5lxQFNJjC4LVlokLeEEiPAXPTK9KkgboqjlEc+Viw0=";
     fetchSubmodules = true;
   };
 
@@ -73,9 +73,6 @@ buildDotnetModule rec {
         steam-run =
           (steam.override {
             extraPkgs = pkgs: [ pkgs.libunwind ];
-            extraProfile = ''
-              unset TZ
-            '';
           }).run;
       in
       ''
